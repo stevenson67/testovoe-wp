@@ -1,0 +1,80 @@
+.function__wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.function__points, .function__contents {
+  background: var(--blue-100);
+  border: 2px solid var(--blue-200);
+  border-radius: 12px;
+}
+.function__points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+.function__point {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  padding: 21px 35px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.function__point_title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.function__point_icon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+.function__point_progress {
+  position: absolute;
+  left: -10px;
+  top: -12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.function__point_circle {
+  stroke-width: 4;
+  stroke: #CDDEF9;
+  fill: none;
+  transform-origin: center;
+  transform: rotate(90deg);
+  transition: stroke-dashoffset 5s linear;
+}
+.function__point.active {
+  background: var(--white);
+}
+.function__point.active .function__point_progress {
+  opacity: 1;
+}
+.function__contents {
+  padding: 24px 48px;
+}
+.function__content {
+  display: none;
+}
+.function__content_desc {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.function__content.active {
+  display: block;
+}
+
+@keyframes circle-progress {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=function.css.map */

@@ -1,0 +1,110 @@
+.cross-platform {
+  position: relative;
+  background: linear-gradient(89.8deg, rgba(255, 255, 255, 0.18) -6.52%, rgba(130, 175, 242, 0.18) 50.08%, rgba(5, 95, 229, 0.18) 106.69%);
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url("../../image/section/cross-platform/background.png") no-repeat center;
+    background-size: cover;
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+  &__text {
+    width: 40%;
+    p {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 40px;
+      letter-spacing: 0.2px;
+      text-align: left;
+      border-left: 4px solid var(--blue-300);
+      padding-left: 12px;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    width: 60%;
+    &_content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 98px;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 4px 0 #B0CDF740;
+      background: var(--white-transparent);
+      border: 1px solid var(--white-transparent);
+      img {
+        height: 48px;
+        object-fit: contain;
+      }
+    }
+    &_macos {
+      img {
+        padding: 34px;
+        height: 32px;
+        object-fit: contain;
+      }
+    }
+    &_windows {
+      img {
+        padding: 26px;
+        height: 48px;
+        object-fit: contain;
+      }
+    }
+    &_linux {
+      img {
+        padding: 26px;
+        height: 48px;
+        object-fit: contain;
+      }
+    }
+  }
+  &__format {
+    .cross-platform__img {
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  &__scroll {
+    .cross-platform__img {
+      display: flex;
+      overflow-x: hidden;
+      position: relative;
+      white-space: nowrap;
+      mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%);
+      img {
+        width: 100px;
+        height: 100px;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+    .cross-platform__img:hover {
+      cursor: grab;
+    }
+    .cross-platform__img:active {
+      cursor: grabbing;
+    }
+  }
+}
