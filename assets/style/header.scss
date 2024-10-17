@@ -1,0 +1,154 @@
+@mixin display-flex {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%;
+  padding: 16px 0;
+  background: var(--white);
+  box-shadow: 0 0 33px 10px #00000059;
+  z-index: 999;
+  &__wrap {
+    @include display-flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    display: flex;
+    max-width: 75px;
+  }
+  &__buttons {
+    @include display-flex;
+    gap: 32px;
+    &_light {
+      @include display-flex;
+      gap: 5px;
+      a {
+        padding: 10px 15px;
+        font-family: 'OpenSans', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+        border-radius: 4px;
+        transition: all .3s;
+      }
+      a:hover {
+        background: #055FE526;
+        color: var(--primary);
+      }
+    }
+
+    &_dark {
+      a {
+        display: block;
+        padding: 13px 24px;
+        font-family: 'OpenSans', sans-serif;
+        font-size: 16px;
+        border-radius: 12px;
+        color: var(--white);
+        background: var(--white);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: color .4s ease;
+      }
+      a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        transform: translateX(0);
+        transition: transform .4s ease;
+        z-index: -1;
+      }
+      a:hover {
+        color: var(--dark);
+      }
+      a:hover::before {
+        transform: translateX(100%);
+      }
+    }
+  }
+  &__menu-button {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    &__menu {
+      position: relative;
+      &-button {
+        position: relative;
+        display: block;
+        width: 34px;
+        height: 24px;
+        span {
+          position: absolute;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 2px;
+          background: var(--dark);
+          transition: all .3s;
+        }
+        span:nth-child(1) {
+          top: 0;
+        }
+        span:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        span:nth-child(3) {
+          bottom: 0;
+        }
+      }
+      &-button.active {
+        span:nth-child(1) {
+          opacity: 0;
+        }
+        span:nth-child(2) {
+          transform: rotate(45deg);
+        }
+        span:nth-child(3) {
+          bottom: 10px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    &__buttons {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      background: var(--white);
+      padding: 20px;
+      z-index: 999;
+      box-shadow: 5px 8px 16px 1px #00000080;
+      transition: opacity .3s;
+      &_light {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 15px;
+        a {
+          padding: 10px 0;
+          width: 100%;
+        }
+      }
+      &_dark {
+        a {
+          white-space: nowrap;
+        }
+      }
+    }
+    &__buttons.active {
+      display: block;
+    }
+  }
+}

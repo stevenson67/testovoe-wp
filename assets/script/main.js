@@ -1,3 +1,15 @@
+// Header
+document.addEventListener("DOMContentLoaded", function() {
+    const menuButton = document.querySelector('.header__menu-button');
+    const headerButtons = document.querySelector('.header__buttons');
+
+    menuButton.addEventListener('click', function() {
+        headerButtons.classList.toggle('active'); // переключаем класс 'active' у блока с кнопками
+        menuButton.classList.toggle('active'); // переключаем класс 'active' у самой кнопки
+    });
+});
+
+
 // Hero
 document.addEventListener("DOMContentLoaded", function () {
     const fileImage = document.querySelector('.hero__image_file');
@@ -71,56 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-// Cross-platform
-document.addEventListener("DOMContentLoaded", function () {
-    const scrollContainer = document.querySelector('.cross-platform__scroll .cross-platform__img');
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
-    let scrollSpeed = 1.5; // Коэффициент скорости скролла
-    let scrollAmount = 0;
-    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-    // Останавливаем автоскролл, когда пользователь начинает перетаскивать
-    scrollContainer.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - scrollContainer.offsetLeft;
-        scrollLeft = scrollContainer.scrollLeft;
-    });
-
-    scrollContainer.addEventListener('mouseleave', () => {
-        isDragging = false;
-    });
-
-    scrollContainer.addEventListener('mouseup', () => {
-        isDragging = false;
-        // Обновляем scrollAmount, чтобы автоскролл продолжался с новой позиции
-        scrollAmount = scrollContainer.scrollLeft;
-    });
-
-    scrollContainer.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - scrollContainer.offsetLeft;
-        const walk = (x - startX) * scrollSpeed; // Ускорение скролла
-        scrollContainer.scrollLeft = scrollLeft - walk;
-    });
-
-    // Нелинейное движение с requestAnimationFrame
-    function autoScroll() {
-        if (!isDragging) {
-            scrollAmount += 1.2; // Скорость автоскролла
-            if (scrollAmount >= maxScroll) scrollAmount = 0; // Бесконечный скролл
-            scrollContainer.scrollLeft = scrollAmount;
-        }
-        requestAnimationFrame(autoScroll); // Плавная анимация
-    }
-
-    autoScroll(); // Запуск автоскролла
-});
-
-
 
 // FAQ
 document.addEventListener('DOMContentLoaded', () => {

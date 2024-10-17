@@ -76,5 +76,19 @@
     transform: rotate(360deg);
   }
 }
+@media (max-width: 1024px) {
+  .function__wrap {
+    grid-template-columns: 1fr;
+  }
+  .function__points {
+    padding: 16px;
+  }
+  .function__point {
+    padding: 10px 15px;
+  }
+  .function__contents {
+    padding: 24px;
+  }
+}
 
 /*# sourceMappingURL=function.css.map */

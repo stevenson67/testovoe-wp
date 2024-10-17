@@ -85,3 +85,20 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 1024px) {
+  .function {
+    &__wrap {
+      grid-template-columns: 1fr;
+    }
+    &__points {
+      padding: 16px;
+    }
+    &__point {
+      padding: 10px 15px;
+    }
+    &__contents {
+      padding: 24px;
+    }
+  }
+}

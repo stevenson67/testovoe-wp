@@ -23,8 +23,6 @@
     margin-bottom: 32px;
   }
   &__desc {
-    font-size: 26px;
-    line-height: 32px;
     color: var(--gray-400);
     margin-bottom: 32px;
   }
@@ -70,6 +68,39 @@
     }
     &_laptop.active {
       opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0 400px;
+    &__title {
+      font-size: 70px;
+      line-height: 80px;
+    }
+    &__text {
+      width: 100%;
+    }
+    &__image {
+      position: absolute;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      height: 40%;
+      width: 100%;
+      margin-top: auto;
+      &_file {
+        left: 20%;
+        top: 5%;
+        width: 50%;
+        height: 125px;
+      }
+      &_laptop {
+        bottom: 40px;
+        height: 300px;
+        padding-left: 20px;
+      }
     }
   }
 }

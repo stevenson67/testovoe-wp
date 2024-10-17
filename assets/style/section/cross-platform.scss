@@ -20,11 +20,6 @@
   &__text {
     width: 40%;
     p {
-      font-size: 28px;
-      font-weight: 500;
-      line-height: 40px;
-      letter-spacing: 0.2px;
-      text-align: left;
       border-left: 4px solid var(--blue-300);
       padding-left: 12px;
     }
@@ -56,25 +51,29 @@
         object-fit: contain;
       }
     }
-    &_macos {
-      img {
-        padding: 34px;
-        height: 32px;
-        object-fit: contain;
+  }
+  &__platform {
+    .cross-platform__img {
+      &_macos {
+        img {
+          padding: 34px;
+          height: 32px;
+          object-fit: contain;
+        }
       }
-    }
-    &_windows {
-      img {
-        padding: 26px;
-        height: 48px;
-        object-fit: contain;
+      &_windows {
+        img {
+          padding: 26px;
+          height: 48px;
+          object-fit: contain;
+        }
       }
-    }
-    &_linux {
-      img {
-        padding: 26px;
-        height: 48px;
-        object-fit: contain;
+      &_linux {
+        img {
+          padding: 26px;
+          height: 48px;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -88,16 +87,27 @@
   }
   &__scroll {
     .cross-platform__img {
-      display: flex;
-      overflow-x: hidden;
+      display: block;
       position: relative;
-      white-space: nowrap;
-      mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%);
+      overflow: hidden;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 80px;
+        z-index: 99999;
+        background: linear-gradient(90deg, #EDF4FE 17.89%, rgba(238, 245, 255, 0) 100%);
+      }
       img {
         width: 100px;
         height: 100px;
         user-select: none;
         pointer-events: none;
+      }
+      .swiper-slide {
+        width: auto !important;
       }
     }
     .cross-platform__img:hover {
@@ -105,6 +115,32 @@
     }
     .cross-platform__img:active {
       cursor: grabbing;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .cross-platform {
+    &__item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__text, &__img {
+      width: 100%;
+    }
+    &__platform {
+      .cross-platform__img {
+        flex-direction: column;
+        align-items: flex-start;
+        &_content {
+          width: 100%;
+        }
+      }
+    }
+    &__format {
+      .cross-platform__img {
+        flex-wrap: wrap;
+      }
     }
   }
 }

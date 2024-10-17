@@ -22,11 +22,6 @@
   width: 40%;
 }
 .cross-platform__text p {
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 40px;
-  letter-spacing: 0.2px;
-  text-align: left;
   border-left: 4px solid var(--blue-300);
   padding-left: 12px;
 }
@@ -58,17 +53,17 @@
   height: 48px;
   object-fit: contain;
 }
-.cross-platform__img_macos img {
+.cross-platform__platform .cross-platform__img_macos img {
   padding: 34px;
   height: 32px;
   object-fit: contain;
 }
-.cross-platform__img_windows img {
+.cross-platform__platform .cross-platform__img_windows img {
   padding: 26px;
   height: 48px;
   object-fit: contain;
 }
-.cross-platform__img_linux img {
+.cross-platform__platform .cross-platform__img_linux img {
   padding: 26px;
   height: 48px;
   object-fit: contain;
@@ -78,11 +73,19 @@
   height: 100px;
 }
 .cross-platform__scroll .cross-platform__img {
-  display: flex;
-  overflow-x: hidden;
+  display: block;
   position: relative;
-  white-space: nowrap;
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 20%);
+  overflow: hidden;
+}
+.cross-platform__scroll .cross-platform__img::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 80px;
+  z-index: 99999;
+  background: linear-gradient(90deg, #EDF4FE 17.89%, rgba(238, 245, 255, 0) 100%);
 }
 .cross-platform__scroll .cross-platform__img img {
   width: 100px;
@@ -90,11 +93,34 @@
   user-select: none;
   pointer-events: none;
 }
+.cross-platform__scroll .cross-platform__img .swiper-slide {
+  width: auto !important;
+}
 .cross-platform__scroll .cross-platform__img:hover {
   cursor: grab;
 }
 .cross-platform__scroll .cross-platform__img:active {
   cursor: grabbing;
+}
+
+@media (max-width: 1024px) {
+  .cross-platform__item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cross-platform__text, .cross-platform__img {
+    width: 100%;
+  }
+  .cross-platform__platform .cross-platform__img {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cross-platform__platform .cross-platform__img_content {
+    width: 100%;
+  }
+  .cross-platform__format .cross-platform__img {
+    flex-wrap: wrap;
+  }
 }
 
 /*# sourceMappingURL=cross-platform.css.map */

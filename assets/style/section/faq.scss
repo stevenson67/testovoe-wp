@@ -21,9 +21,6 @@
     justify-content: space-between;
     height: 48px;
     &_title {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 24px;
       width: 90%;
     }
     &_icon {
@@ -38,9 +35,6 @@
     overflow: hidden;
     transition: max-height .3s ease;
     &_desc {
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 24px;
       padding-top: 20px;
     }
   }
@@ -55,10 +49,21 @@
   }
   &__span {
     display: block;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 24px;
     text-align: center;
     margin-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq {
+    &__wrap {
+      grid-template-columns: 1fr;
+    }
+    &__header {
+      height: auto;
+    }
+    &__item {
+      padding: 20px;
+    }
   }
 }

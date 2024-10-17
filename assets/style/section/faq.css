@@ -21,9 +21,6 @@
   height: 48px;
 }
 .faq__header_title {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 24px;
   width: 90%;
 }
 .faq__header_icon {
@@ -38,9 +35,6 @@
   transition: max-height 0.3s ease;
 }
 .faq__content_desc {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
   padding-top: 20px;
 }
 .faq__item.active {
@@ -54,11 +48,20 @@
 }
 .faq__span {
   display: block;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
   text-align: center;
   margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .faq__wrap {
+    grid-template-columns: 1fr;
+  }
+  .faq__header {
+    height: auto;
+  }
+  .faq__item {
+    padding: 20px;
+  }
 }
 
 /*# sourceMappingURL=faq.css.map */
